@@ -5,18 +5,17 @@
     </body>
     <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-    <script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
         const root = document.getElementById('root');
-        const span = React.createElement('h3', {
-            onMouseEnter: () => console.log('mouse enter'),
-        }, "안녕 나는 H3야");
-        const btn = React.createElement('button', {
-            onClick: () => console.log('눌렀음'),
-            style : {
+        const title = (<h3 id="title" onMouseEnter={() => console.log('mouse enter')}>안녕 나는 H3야</h3>);
+        const btn = (<button 
+            style={{
                 'backgroundColor' : 'tomato'
-            },
-        }, '눌러요');
-        const container = React.createElement('div', null, [span, btn]);
+            }}
+            onClick={() => console.log('눌렀음')}
+            >눌러요</button>);
+        const container = React.createElement('div', null, [title, btn]);
         ReactDOM.render(container, root);
     </script>
 
